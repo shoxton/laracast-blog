@@ -7,6 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>{{ $task->body }}</h1>
+
+
+    @include ('layouts.nav')
+
+    @yield('content')
+
+    @include ('layouts.footer')
+    
 </body>
 </html>
