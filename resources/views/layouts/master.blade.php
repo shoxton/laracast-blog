@@ -1,19 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Blog Template for Bootstrap</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/blog/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/blog.css" rel="stylesheet">
 </head>
 <body>
 
 
     @include ('layouts.nav')
+    
+    <div class="blog-header">
+        <div class="container">
+            <h1 class="blog-title">My Blog</h1>
+            <p class="lead blog-description">An example blog template built with Bootstrap.</p>
+        </div>
+    </div>
 
-    @yield('content')
+    <div class="container">
+        <div class="row">
+
+            @yield ('content')
+
+            @include ('layouts.sidebar')
+
+        </div>
+    </div>
 
     @include ('layouts.footer')
     
+
 </body>
 </html>
