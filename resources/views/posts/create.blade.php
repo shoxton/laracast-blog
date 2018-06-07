@@ -7,19 +7,7 @@
 
         <hr>
 
-        @if (count($errors))
-            <div class="alert alert-danger">
-                <ul>
-
-                    @foreach($errors->all() as $error)
-
-                        <li>{{ $error }}</li>
-
-                    @endforeach
-
-                </ul>
-            </div>
-        @endif
+        @include ('layouts.errors')
 
         <form method="POST" action="/posts">
 
@@ -27,12 +15,12 @@
 
             <div class="form-group">
                 <label for="title">Title</label>
-                <input type="text" class="form-control" id="title" name="title">
+                <input required type="text" class="form-control" id="title" name="title">
             </div>
 
             <div class="form-group">
                 <label for="body">Content</label>
-                <textarea class="form-control" name="body" id="body" cols="30" rows="10"></textarea>
+                <textarea required class="form-control" name="body" id="post_body" cols="30" rows="10"></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary">Publish</button>
