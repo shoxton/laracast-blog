@@ -37,3 +37,9 @@ Route::post('/login','SessionsController@store');
 
 Route::get('/logout','SessionsController@destroy');
 
+//Users controller
+Route::get('/users','UsersController@index');
+
+Route::get('/users/{user}','UsersController@show');
+
+Route::get('/profile','UsersController@update');

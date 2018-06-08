@@ -10,20 +10,23 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/posts">All posts</a>
-                    </li>
                 </ul>
             </div>
 
             @if (auth()->check())
 
-                <a href="#" class="nav-link">{{ auth()->user()->name }}</a>
-
-                <a href="/posts/create"><button class="btn btn-default my-2 my-sm-0" type="submit">New post</button></a>
-
-                <a class="nav-link" href="/logout"><span class="badge badge-light">Logout</span> </a>
-
+                    <div class="dropdown show">
+                        <button type="button" class="btn btn-light dropdown-toggle" aria-label="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-user" aria-hidden="true"></i> {{ auth()->user()->name }}
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/posts/create">Create new post</a>
+                            <a class="dropdown-item" href="/profile">Profile</a>
+                            <div role="separator" class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/logout">Logout</a>
+                        </div>
+                    </div>
+                    
             @else
 
                 <a class="nav-link" href="/login"><span class=" badge badge-light">Login</span> </a>

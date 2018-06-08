@@ -31,12 +31,16 @@ class Post extends Model
 
     public function scopeFilter($query, $filters) {
 
-        if ($month = $filters['month']) {
-            $query->whereMonth('created_at', Carbon::parse($month)->month);
-        }
+        if(isset($filters['month'])){
 
-        if ($year = $filters['year']) {
-            $query->whereYear('created_at', $year);
+            $query->whereMonth('created_at',Carbon::parse($filters['month'])->month);
+            
+        }
+        
+        if(isset($filters['year'])){
+        
+            $query->whereYear('created_at',$filters['year']);
+
         }
 
     }
@@ -50,7 +54,7 @@ class Post extends Model
         ->orderByRaw('min(created_at) desc')
 
         ->get()
-        
+
         ->toArray();
 
     }
