@@ -14,7 +14,7 @@
 <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
 <script>
     tinymce.init({
-        selector: '#post_body',
+        selector: '#create_post',
         theme: 'modern',
         height: 300,
         plugins: [

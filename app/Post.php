@@ -16,9 +16,14 @@ class Post extends Model
 
     }
 
-    public function addComment($body) {
+    public function addComment($array) {
 
-        $this->comments()->create(compact('body'));
+        $this->comments()->create([
+            'body' => $array['body'],
+            'user_id' => $array['user_id']
+        ]);
+
+        // dd($array);
 
     }
 

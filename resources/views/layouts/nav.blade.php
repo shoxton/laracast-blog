@@ -14,8 +14,21 @@
                         <a class="nav-link" href="/posts">All posts</a>
                     </li>
                 </ul>
-                <a href="/posts/create"><button class="btn btn-default my-2 my-sm-0" type="submit">Create</button></a>
             </div>
+
+            @if (auth()->check())
+
+                <a href="#" class="nav-link">{{ auth()->user()->name }}</a>
+
+                <a href="/posts/create"><button class="btn btn-default my-2 my-sm-0" type="submit">New post</button></a>
+
+                <a class="nav-link" href="/logout"><span class="badge badge-light">Logout</span> </a>
+
+            @else
+
+                <a class="nav-link" href="/login"><span class=" badge badge-light">Login</span> </a>
+
+            @endif
         </nav>
     </div>
 </div>

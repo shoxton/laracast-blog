@@ -9,57 +9,77 @@
     <?= $post->body; ?>
 
     <hr>
+
     <h3>Comments</h3>
 
     <div class="comments">
 
-        <ul class="list-group">
+        @if (count($post->comments))
 
-            @foreach ($post->comments as $comment)
+            <ul class="list-group">
 
-                <li class="list-group-item">
-                    {{ $comment->body }}<br>
-                    <span class="badge">{{ $comment->created_at->diffForHumans() }}</span>
-                    
-                </li>
+                @foreach ($post->comments as $comment)
 
-            @endforeach
+                    <li class="list-group-item">
+                        <span class="badge badge-dark">{{ $comment->user->name }}</span><br>
+                        {{ $comment->body }}<br>
+                        <span class="badge">{{ $comment->created_at->diffForHumans() }}</span>
+                        
+                    </li>
 
-        </ul>
+                @endforeach
+
+            </ul>
+
+            
+
+        @else
+
+            <p>No comments yet.</p>
+
+        @endif
 
     </div>
 
     <hr>
 
-    <h3><label for="body">Leave a comment</label></h3>
+    @if (auth()->check())
 
-    <div class="card">
+        <h3><label for="body">Leave a comment</label></h3>
 
-        <div class="card-body">
+        <div id="comment" class="card">
 
-            @include ('layouts.errors')
+            <div class="card-body">
 
-            <form action="/posts/{{ $post->id }}/comments" method="POST">
+                @include ('layouts.errors')
 
-                {{ csrf_field() }}
+                <form action="/posts/{{ $post->id }}/comments" method="POST">
 
-                <div class="form-group">
+                    {{ csrf_field() }}
 
-                    <textarea required class="form-control" name="body" id="body" cols="30" placeholder="Your comment here."></textarea>
-                
-                </div>
+                    <div class="form-group">
 
-                <div class="form-group">
-    
-                    <button type="submit" class="btn btn-primary">Add comment</button>
+                        <textarea required class="form-control" name="body" id="body" cols="30" placeholder="Your comment here."></textarea>
+                    
+                    </div>
 
-                </div>
-
-            </form>
-
-        </div>
+                    <div class="form-group">
         
-    </div>
+                        <button type="submit" class="btn btn-primary">Add comment</button>
+
+                    </div>
+
+                </form>
+
+            </div>
+            
+        </div>
+    
+    @else
+    
+        <a href="/login">Login to comment</a>
+
+    @endif
     
 </div>
 

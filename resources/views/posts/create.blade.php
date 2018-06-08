@@ -19,8 +19,8 @@
             </div>
 
             <div class="form-group">
-                <label for="body">Content</label>
-                <textarea required class="form-control" name="body" id="post_body" cols="30" rows="10"></textarea>
+                <label for="create_post">Content</label>
+                <textarea required class="form-control" name="body" id="create_post" cols="30" rows="10"></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary">Publish</button>
