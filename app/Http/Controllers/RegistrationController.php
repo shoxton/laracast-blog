@@ -39,6 +39,8 @@ class RegistrationController extends Controller
 
         \Mail::to($user)->send( new Welcome($user));
 
+        session()->flash('message', 'Welcome to My Blog, ' . $user->name . '!');
+
         //Redirects the user to the home page
 
         return redirect()->home(); 

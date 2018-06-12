@@ -21,6 +21,13 @@
    max-width: 100%;
  }
 
+ #flash-message {
+  bottom: 20px;
+  position: fixed;
+  right: 20px;
+  z-index: 10;
+}
+
  @media (min-width: 48em) {
   html {
     font-size: 18px;
