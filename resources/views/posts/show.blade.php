@@ -21,7 +21,7 @@
                 @foreach ($post->comments as $comment)
 
                     <li class="list-group-item">
-                        <span class="badge badge-dark">{{ $comment->user->name }}</span><br>
+                        <a href="/users/{{ $comment->user->id }}"><span class="badge badge-dark">{{ $comment->user->name }}</span></a><br>
                         {{ $comment->body }}<br>
                         <span class="badge">{{ $comment->created_at->diffForHumans() }}</span>
                         
